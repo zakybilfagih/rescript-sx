@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@opam/ocaml-lsp-server": "*",
-    "ocaml": "~4.12.x",
+    "ocaml": "4.14.x",
     "@opam/ocamlformat": "*",
     "@opam/utop": "*"
   },
