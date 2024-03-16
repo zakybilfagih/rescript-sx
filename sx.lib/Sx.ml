@@ -369,7 +369,10 @@ let write_module_cache ~lib_bs ~input_name =
     Bos.OS.Dir.create dir |> Result.get_ok |> ignore;
     dir
   in
-  let module_name = Fpath.(v input_name |> rem_ext ~multi:true |> basename) in
+  let module_name =
+    Fpath.(v input_name |> rem_ext ~multi:true |> basename)
+    |> String.lowercase_ascii
+  in
   let cache_file = Fpath.(sx_cache_dir / module_name |> add_ext "mldata") in
   if Css.is_empty !Global.module_css then
     Bos.OS.File.delete cache_file |> Result.get_ok

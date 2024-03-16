@@ -24,6 +24,7 @@ let rescript_toplevel_modules =
        let list_of_modules = rev_lines_of_chan ichan in
        close_in ichan;
        list_of_modules |> String_set.of_list
+       |> String_set.map String.lowercase_ascii
      | Error (`Msg msg) ->
        prerr_endline
          ("sx: error: could not find .mlmap file in ./lib/bs:\n" ^ msg);
